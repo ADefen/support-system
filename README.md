@@ -24,14 +24,17 @@
 ## Как запустить (локально, SQLite — самый быстрый вариант)
 
 1. Клонируй репозиторий и перейди в папку проекта.
-2. Создай и активируй виртуальное окружение:
+   ```bash
+   git clone <URL_РЕПОЗИТОРИЯ>
+   cd support_system
+3. Создай и активируй виртуальное окружение:
    ```bash
    python -m venv .venv
    # (.venv)\Scripts\activate   Windows
    # source .venv/bin/activate   macOS/Linux
-3. Установи зависимости:
+4. Установи зависимости:
 pip install -r requirements.txt
-4. При необходимости переключись на SQLite (если в settings.py настроен PostgreSQL):
+5. При необходимости переключись на SQLite (если в settings.py настроен PostgreSQL):
    ```bash
    DATABASES = {
        'default': {
