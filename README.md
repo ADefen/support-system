@@ -43,15 +43,18 @@ pip install -r requirements.txt
        }
    }
 6. Примени миграции:
+   
    python manage.py makemigrations
+   
    python manage.py migrate
-8. Создай суперпользователя для входа в админку:
+9. Создай суперпользователя для входа в админку:
+    
    python manage.py createsuperuser
-9. Наполни базу тестовыми данными:
-   python seed_data.py
-10. Запусти сервер:
-   python manage.py runserver
-11. Открой
+11. Наполни базу тестовыми данными:
+     python seed_data.py
+13. Запусти сервер:
+python manage.py runserver
+15. Открой
     
 Список заявок: http://127.0.0.1:8000/tickets/
 
