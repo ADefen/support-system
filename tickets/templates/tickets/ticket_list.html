@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заявок</title>
+</head>
+<body>
+    <h1>Заявки техподдержки</h1>
+    
+    <p><a href="{% url 'ticket_create' %}"><strong>+ Создать новую заявку</strong></a></p>
+
+    {% if tickets %}
+        <ul>
+            {% for ticket in tickets %}
+                <li>
+                    #{{ ticket.id }} — {{ ticket.title }}
+                    <br>
+                    Статус: {{ ticket.get_status_display }}
+                    <br>
+                    Создано: {{ ticket.created_at }}
+                    
+                    <!-- Можно добавить вывод ИИ-полей для наглядности -->
+                    {% if ticket.category %}
+                        <br><small>Категория (ИИ): {{ ticket.category }}</small>
+                    {% endif %}
+                    {% if ticket.draft_response %}
+                        <br><small>Черновик (ИИ): {{ ticket.draft_response|truncatechars:120 }}</small>
+                    {% endif %}
+					<a href="{% url 'ticket_detail' pk=ticket.pk %}">Подробнее</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Пока нет заявок.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать заявку</title>
+</head>
+<body>
+    <h1>Новая заявка в техподдержку</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'ticket_create' %}">
+        {% csrf_token %}
+        
+        <label>Тема (title):</label><br>
+        <input type="text" name="title" required style="width: 300px; margin-bottom: 10px;"><br><br>
+
+        <label>Описание (description):</label><br>
+        <textarea name="description" rows="5" cols="40" required style="margin-bottom: 10px;"></textarea><br><br>
+
+        <button type="submit">Создать тикет</button>
+    </form>
+
+    <p><a href="{% url 'ticket_list' %}">← Вернуться к списку</a></p>
+</body>
+</html>
+
